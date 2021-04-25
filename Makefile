@@ -34,15 +34,15 @@ RELPATH := $(shell realpath --relative-to=$(ROCKETCHIP) $(PWD))
 all: emulator
 
 verilog:
-	$(MAKE) -C $(ROCKETCHIP)/vsim ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=DefaultConfig run
+	$(MAKE) -C $(ROCKETCHIP)/vsim ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=ztx.rocketchip.system.DefaultConfig verilog
 
 verilog-debug:
-	$(MAKE) -C $(ROCKETCHIP)/vsim ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=DefaultConfig run-debug
+	$(MAKE) -C $(ROCKETCHIP)/vsim ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=ztx.rocketchip.system.DefaultConfig run-debug
 
 emulator:
-	$(MAKE) -C $(ROCKETCHIP)/emulator ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=DefaultConfig run
+	$(MAKE) -C $(ROCKETCHIP)/emulator ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=ztx.rocketchip.system.DefaultConfig run
 
 emulator-debug:
-	$(MAKE) -C $(ROCKETCHIP)/emulator ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=DefaultConfig run-debug
+	$(MAKE) -C $(ROCKETCHIP)/emulator ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=ztx.rocketchip.system.DefaultConfig run-debug
 
 .PHONY: all verilog verilog-debug emulator emulator-debug

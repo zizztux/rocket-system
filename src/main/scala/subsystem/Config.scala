@@ -30,7 +30,7 @@
 
 package ztx.rocketchip.subsystem
 
-import chipsalliance.rocketchip.config._
+import freechips.rocketchip.config.Config
 import freechips.rocketchip.subsystem._
 
 

@@ -30,24 +30,27 @@
 
 package ztx.rocketchip.system
 
-import chipsalliance.rocketchip.config.Parameters
+import freechips.rocketchip.config.Parameters
 import freechips.rocketchip.subsystem._
 import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.util.DontTouch
 
 
 class RocketSystem(implicit p: Parameters) extends RocketSubsystem
-    with HasHierarchicalBusTopology
     with HasAsyncExtInterrupts
     with CanHaveMasterAXI4MemPort
     with CanHaveMasterAXI4MMIOPort
     with CanHaveSlaveAXI4Port
-    with HasPeripheryBootROM {
+{
+  // optionally add ROM devices
+  // Note that setting BootROMLocated will override the reset_vector for all tiles
+  val bootROM  = p(BootROMLocated(location)).map { BootROM.attach(_, this, CBUS) }
+  val maskROMs = p(MaskROMLocated(location)).map { MaskROM.attach(_, this, CBUS) }
+
   override lazy val module = new RocketSystemModuleImp(this)
 }
 
 class RocketSystemModuleImp[+L <: RocketSystem](_outer: L) extends RocketSubsystemModuleImp(_outer)
     with HasRTCModuleImp
     with HasExtInterruptsModuleImp
-    with HasPeripheryBootROMModuleImp
     with DontTouch

@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ztx.rocketchip.subsystem
+package xfactory.rocketchip.subsystem
 
 import freechips.rocketchip.config.Config
 import freechips.rocketchip.subsystem._

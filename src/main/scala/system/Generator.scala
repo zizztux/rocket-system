@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ztx.rocketchip.system
+package xfactory.rocketchip.system
 
 import firrtl.options.StageMain
 import freechips.rocketchip.system.RocketChipStage

@@ -28,11 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ztx.rocketchip.system
+package xfactory.rocketchip.system
 
 import freechips.rocketchip.config.Config
 import freechips.rocketchip.subsystem._
-import ztx.rocketchip.subsystem._
+import xfactory.rocketchip.subsystem._
 
 
 class PlatformConfig extends Config(

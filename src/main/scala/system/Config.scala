@@ -36,28 +36,19 @@ import ztx.rocketchip.subsystem._
 
 
 class PlatformConfig extends Config(
-  new WithDefaultMemPort() ++
-  new WithDefaultMMIOPort() ++
+  new WithEdgeDataBits(128) ++
+  new WithMemPort(0x80000000L, 0x80000000L) ++
+  new WithMMIOPort(0x60000000L, 0x20000000L) ++
   new WithDefaultSlavePort() ++
   new WithTimebase(BigInt(1000000)) ++
   new WithDTS("freechips,rocketchip-unknown", Nil) ++
   new WithNExtTopInterrupts(2) ++
   new BaseSubsystemConfig()
-/*
-  new WithEdgeDataBits(128) ++
-  new WithMemPort(0x80000000L, 0x10000000L) ++
-  new WithMMIOPort(0x60000000L, 0x20000000L) ++
-  new WithDefaultSlavePort() ++
-  new WithTimebase(BigInt(1000000)) ++
-  new WithDTS("ztx,rocketchip-unknown", Nil) ++
-  new WithNExtTopInterrupts(2) ++
-  new BaseSubsystemConfig()
-*/
 )
 
 class DefaultConfig extends Config(
-//new WithCacheBlockBytes(64) ++
-  new WithNBigCores(1) ++
+  new WithCacheBlockBytes(64) ++
+  new WithNBigCores(2) ++
   new WithCoherentBusTopology ++
   new PlatformConfig
 )

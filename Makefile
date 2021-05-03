@@ -47,5 +47,6 @@ emulator-debug:
 
 clean:
 	$(MAKE) -C $(ROCKETCHIP)/vsim clean
+	\rm -f $(ROCKETCHIP)/rocketchip.jar
 
 .PHONY: all verilog verilog-debug emulator emulator-debug clean

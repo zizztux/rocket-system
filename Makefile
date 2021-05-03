@@ -45,4 +45,7 @@ emulator:
 emulator-debug:
 	$(MAKE) -C $(ROCKETCHIP)/emulator ROCKETCHIP_ADDONS=$(RELPATH) PROJECT=ztx.rocketchip.system MODEL=TestHarness CONFIG=ztx.rocketchip.system.DefaultConfig run-debug
 
-.PHONY: all verilog verilog-debug emulator emulator-debug
+clean:
+	$(MAKE) -C $(ROCKETCHIP)/vsim clean
+
+.PHONY: all verilog verilog-debug emulator emulator-debug clean

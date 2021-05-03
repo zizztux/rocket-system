@@ -40,7 +40,7 @@ class PlatformConfig extends Config(
   new WithDefaultMMIOPort() ++
   new WithDefaultSlavePort() ++
   new WithTimebase(BigInt(1000000)) ++
-  new WithDTS("freechips,rocketchip-unknown", Nil)
+  new WithDTS("freechips,rocketchip-unknown", Nil) ++
   new WithNExtTopInterrupts(2) ++
   new BaseSubsystemConfig()
 /*
